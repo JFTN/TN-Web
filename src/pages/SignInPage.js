@@ -1,12 +1,6 @@
 import React, { useState } from "react"; //, { useState } from 'react';
 import { Link } from "react-router-dom";
-import "../styles/SignIn.css"
-
-// const [username, setUsername] = useState();
-// const [password, setPassword] = useState();
-
-var username;
-var password;
+import "../styles/SignIn.css";
 
 var capsLockWarning = "";
 
@@ -16,69 +10,75 @@ var capsLockWarning = "";
 // };
 
 // setting variables
-function SetUsername(props){
-  username = props.target.value;
-}
-
-function SetPassword(props){
-  password = props.target.value;
-}
 
 // submit form
-function handleSubmit(event){
+function onSubmit(event) {
   event.preventDefault();
 }
 
 // detect caps lock
-function handleOnKeyDown(event) {
+function onKeyDown(event) {
   if (event.keyCode == 9) {
     capsLockWarning = "Caps Lock is On!";
     console.log("caps lock");
-  } 
-  else {
+  } else {
     capsLockWarning = "";
   }
+}
+
+const onChange = (setter) => (event) => {
+  setter(event.nativeEvent.target.value);
 };
 
 const SignInPage = () => {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
   return (
     <div>
       <h1 className="header">Sign In</h1>
 
       <Link to="/SignUp">
-        <button type="button" className="signUpButton">
-          SignUp
+        <button className="signUpButton" type="button">
+          Sign Up
         </button>
       </Link>
 
-      <form onSubmit={handleSubmit} className="signIn">
+      <form className="signIn" onSubmit={onSubmit}>
         <div className="inputSection">
-          <label>
-            {/* Username:  */}
-            <input autoFocus type="text" placeholder="Username" value={username} onChange={SetUsername} 
-            className="input" />
-          </label>
+          <input
+            autoFocus
+            className="input"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={onChange(setUsername)}
+          />
         </div>
-        <br/>
+        <br />
         <div className="inputSection">
-          <label>
-            {/* Password:  */}
-            {capsLockWarning}
-            <input type="password" placeholder="Password" value={password} onChange={SetPassword} 
-            onKeyDown={handleOnKeyDown}
-            className="input" />
-          </label>
+          {capsLockWarning}
+          <input
+            className="input"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={onChange(setPassword)}
+            onKeyDown={onKeyDown}
+          />
         </div>
-        <br/>
-        <input type="submit" value="Sign In" className="button"/>
-        <Link to="/forgotPassword" className="forgotPassword">
-          <p>
-            Forgot Password?
-          </p>
+        <br />
+        <input 
+          className="button" 
+          type="submit" 
+          value="Sign In" 
+        />
+        <Link className="forgotPassword" to="/forgotPassword">
+          <p>Forgot Password?</p>
         </Link>
       </form>
     </div>
   );
-}
+};
 
 export default SignInPage;
