@@ -5,31 +5,13 @@ const SignUpPage = () => {
     <div>
       <h1>Sign Up page</h1>
       <div>
-        <label for="email">Email</label>
-        <br></br>
-        <input type="email"></input>
+        <input type="email" placeholder="Email"></input>
+        <input type="text" placeholder="Username"></input>
+        <input type="password" placeholder="Password"></input>
+        <input type="password" placeholder="Confirm Password"></input>
 
-        <br></br>
-
-        <label for="username">Username</label>
-        <br></br>
-        <input type="text"></input>
-
-        <br></br>
-
-        <label for="password">Password</label>
-        <br></br>
-        <input type="password"></input>
-
-        <br></br>
-
-        <label for="confirm-password">Confirm Password</label>
-        <br></br>
-        <input type="password"></input>
-
-        <br></br>
-        
-        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Sign Up"></input>
+        <p>By clicking "Sign Up" you are agreeing to TOS etc</p>
       </div>
     </div>
   );
