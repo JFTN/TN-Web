@@ -8,6 +8,8 @@ import "../styles/SignIn.css"
 var username;
 var password;
 
+var capsLockWarning = "";
+
 // password visibility
 // const togglePasswordVisiblity = () => {
 //   setPasswordShown(passwordShown ? false : true);
@@ -26,6 +28,17 @@ function SetPassword(props){
 function handleSubmit(event){
   event.preventDefault();
 }
+
+// detect caps lock
+function handleOnKeyDown(event) {
+  if (event.keyCode == 9) {
+    capsLockWarning = "Caps Lock is On!";
+    console.log("caps lock");
+  } 
+  else {
+    capsLockWarning = "";
+  }
+};
 
 const SignInPage = () => {
   return (
@@ -50,7 +63,9 @@ const SignInPage = () => {
         <div className="inputSection">
           <label>
             {/* Password:  */}
+            {capsLockWarning}
             <input type="password" placeholder="Password" value={password} onChange={SetPassword} 
+            onKeyDown={handleOnKeyDown}
             className="input" />
           </label>
         </div>
