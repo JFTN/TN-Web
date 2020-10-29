@@ -1,0 +1,61 @@
+body {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    text-align: center;
+}
+
+.header {
+    padding-top: 100px;
+
+    font-size: 40px;
+}
+
+.signIn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputSection {
+    padding: 1px;
+}
+
+.input {
+    height: 30px;
+    width: 200px;
+
+    font-size: 15px;
+}
+
+.textGap {
+    padding: 5px;
+}
+
+.button {
+    background-color: black;
+    color: floralwhite;
+    
+    height: 30px;
+    width: 70px;
+
+    font-size: 15px;
+}
+
+.signUpButton {
+    /* to shorten with sass */
+    background-color: black;
+    color: floralwhite;
+    
+    height: 40px;
+    width: 80px;
+
+    position: absolute;
+    top: 30px;
+    right: 60px;
+
+    font-size: 15px;
+}
+
+.forgotPassword {
+    text-decoration: none;
+}
