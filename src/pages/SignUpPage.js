@@ -6,28 +6,28 @@ const SignUpPage = () => {
       <h1>Sign Up page</h1>
       <div>
         <label for="email">Email</label>
-        <br></br>
-        <input type="email"></input>
+        <br />
+        <input type="email" />
 
-        <br></br>
+        <br />
 
         <label for="username">Username</label>
-        <br></br>
-        <input type="text"></input>
+        <br />
+        <input type="text" />
 
-        <br></br>
+        <br />
 
         <label for="password">Password</label>
-        <br></br>
-        <input type="password"></input>
+        <br />
+        <input type="password" />
 
-        <br></br>
+        <br />
 
         <label for="confirm-password">Confirm Password</label>
-        <br></br>
-        <input type="password"></input>
+        <br />
+        <input type="password" />
 
-        <br></br>
+        <br />
         
         <input type="submit" value="Submit"></input>
       </div>
