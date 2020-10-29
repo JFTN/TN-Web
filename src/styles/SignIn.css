@@ -4,7 +4,9 @@ body {
 }
 
 .header {
-    padding: 100px;
+    padding-top: 100px;
+
+    font-size: 40px;
 }
 
 .signIn {
@@ -21,6 +23,8 @@ body {
 .input {
     height: 30px;
     width: 200px;
+
+    font-size: 15px;
 }
 
 .textGap {
@@ -32,5 +36,26 @@ body {
     color: floralwhite;
     
     height: 30px;
-    width: 60px;
+    width: 70px;
+
+    font-size: 15px;
+}
+
+.signUpButton {
+    /* to shorten with sass */
+    background-color: black;
+    color: floralwhite;
+    
+    height: 40px;
+    width: 80px;
+
+    position: absolute;
+    top: 30px;
+    right: 60px;
+
+    font-size: 15px;
+}
+
+.forgotPassword {
+    text-decoration: none;
 }

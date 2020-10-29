@@ -1,4 +1,5 @@
 import React, { useState } from "react"; //, { useState } from 'react';
+import { Link } from "react-router-dom";
 import "../styles/SignIn.css"
 
 // const [username, setUsername] = useState();
@@ -30,6 +31,13 @@ const SignInPage = () => {
   return (
     <div>
       <h1 className="header">Sign In</h1>
+
+      <Link to="/SignUp">
+        <button type="button" className="signUpButton">
+          SignUp
+        </button>
+      </Link>
+
       <form onSubmit={handleSubmit} className="signIn">
         <div className="inputSection">
           <label>
@@ -48,6 +56,11 @@ const SignInPage = () => {
         </div>
         <br/>
         <input type="submit" value="Sign In" className="button"/>
+        <Link to="/forgotPassword" className="forgotPassword">
+          <p>
+            Forgot Password?
+          </p>
+        </Link>
       </form>
     </div>
   );
