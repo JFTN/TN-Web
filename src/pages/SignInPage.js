@@ -24,12 +24,6 @@ class SignInPage extends React.Component {j
       <div>
         <h1 className="header">Sign In</h1>
 
-        <Link to="/SignUp">
-          <button className="signUpButton" type="button">
-            Sign Up
-          </button>
-        </Link>
-
         <form className="signIn" onSubmit={this.onSubmit}>
           <div className="inputSection">
             <input
@@ -63,7 +57,9 @@ class SignInPage extends React.Component {j
               tabIndex="0"
               />
             <br />
-            {capsLockWarning}
+            <div className="capsWarning">
+              {capsLockWarning}
+            </div>
           </div>
           <br />
           <input 
@@ -71,10 +67,15 @@ class SignInPage extends React.Component {j
             type="submit" 
             value="Sign In" 
           />
-          <Link className="forgotPassword" to="/forgotPassword">
-            <p>Forgot Password?</p>
-          </Link>
         </form>
+
+        <Link className="signUpLink" to="/SignUp">
+          <p>Sign Up</p>
+        </Link>
+
+        <Link className="forgotPasswordLink" to="/forgotPassword">
+          <p>Forgot Password?</p>
+        </Link>
       </div>
     );
   }
