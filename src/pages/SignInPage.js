@@ -38,6 +38,7 @@ class SignInPage extends React.Component {j
               type="text"
               placeholder="Username"
               value={this.state.username}
+              onClick={this.offCapsWarning}
               onChange={event => {                  
                 this.setState({         
                   username: event.nativeEvent.target.value
@@ -57,9 +58,11 @@ class SignInPage extends React.Component {j
                   password: event.nativeEvent.target.value
                 });
               }}
-              onKeyDown={this.onKeyDown}
+              onKeyDown={this.onCapsDown}
+              onClick={this.isCapsDown}
               tabIndex="0"
               />
+            <br />
             {capsLockWarning}
           </div>
           <br />
@@ -81,7 +84,7 @@ class SignInPage extends React.Component {j
   }
 
   // detect caps lock
-  onKeyDown = (event) => {
+  onCapsDown = (event) => {
     if (event.code == "CapsLock") {
       if (capsLockWarning == "")
         capsLockWarning = "Caps Lock is On!";
@@ -90,6 +93,22 @@ class SignInPage extends React.Component {j
       
       this.forceUpdate();
     }
+  }
+
+  isCapsDown = (event) => {
+    var capsOn = event.getModifierState("CapsLock");
+
+    if (capsOn == true)
+      capsLockWarning = "Caps Lock is On!";
+    else
+        capsLockWarning = "";
+
+    this.forceUpdate();
+  }
+
+  offCapsWarning = () => {
+    capsLockWarning = "";
+    this.forceUpdate();
   }
 };
 
