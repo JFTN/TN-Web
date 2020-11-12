@@ -15,7 +15,7 @@ class SignInPage extends React.Component {j
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
   }
 
@@ -47,7 +47,6 @@ class SignInPage extends React.Component {j
           </div>
           <br />
           <div className="inputSection">
-            {capsLockWarning}
             <input
               className="input"
               type="password"
@@ -55,11 +54,13 @@ class SignInPage extends React.Component {j
               value={this.state.password}
               onChange={event => {
                 this.setState({         
-                  username: event.nativeEvent.target.value
+                  password: event.nativeEvent.target.value
                 });
               }}
-              onKeyDown={this.onKyDown}
-            />
+              onKeyDown={this.onKeyDown}
+              tabIndex="0"
+              />
+            {capsLockWarning}
           </div>
           <br />
           <input 
@@ -81,11 +82,13 @@ class SignInPage extends React.Component {j
 
   // detect caps lock
   onKeyDown = (event) => {
-    if (event.keyCode == 9) {
-      capsLockWarning = "Caps Lock is On!";
-      console.log("caps lock");
-    } else {
-      capsLockWarning = "";
+    if (event.code == "CapsLock") {
+      if (capsLockWarning == "")
+        capsLockWarning = "Caps Lock is On!";
+      else
+        capsLockWarning = "";
+      
+      this.forceUpdate();
     }
   }
 };
