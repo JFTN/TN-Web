@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
+/* Variables */
+body {
+  font-family: "Didact Gothic", sans-serif;
+  background: linear-gradient(90deg, #ffd1dc 0%, #b19cd9 50%, #aec6cf 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div .container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  border-radius: 20px;
+  padding: 30px;
+}
+div .container input:not([type=button]):not([type=reset]):not([type=submit]) {
+  display: flex;
+  height: 35px;
+  width: 300px;
+  margin: 15px;
+  padding: 5px;
+  font-size: 15px;
+}
+div .container input[type=button], div .container input[type=reset], div .container input[type=submit] {
+  background-color: #ffd1dc;
+  color: black;
+  height: 40px;
+  width: 150px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-color: #ffd1dc;
+}
+div h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+div .tos {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=SignUp.css.map */
