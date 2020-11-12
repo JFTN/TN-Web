@@ -15,7 +15,7 @@ class SignInPage extends React.Component {j
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
     };
   }
 
@@ -23,12 +23,6 @@ class SignInPage extends React.Component {j
     return (
       <div>
         <h1 className="header">Sign In</h1>
-
-        <Link to="/SignUp">
-          <button className="signUpButton" type="button">
-            Sign Up
-          </button>
-        </Link>
 
         <form className="signIn" onSubmit={this.onSubmit}>
           <div className="inputSection">
@@ -38,6 +32,7 @@ class SignInPage extends React.Component {j
               type="text"
               placeholder="Username"
               value={this.state.username}
+              onClick={this.offCapsWarning}
               onChange={event => {                  
                 this.setState({         
                   username: event.nativeEvent.target.value
@@ -47,7 +42,6 @@ class SignInPage extends React.Component {j
           </div>
           <br />
           <div className="inputSection">
-            {capsLockWarning}
             <input
               className="input"
               type="password"
@@ -55,11 +49,17 @@ class SignInPage extends React.Component {j
               value={this.state.password}
               onChange={event => {
                 this.setState({         
-                  username: event.nativeEvent.target.value
+                  password: event.nativeEvent.target.value
                 });
               }}
-              onKeyDown={this.onKyDown}
-            />
+              onKeyDown={this.onCapsDown}
+              onClick={this.isCapsDown}
+              tabIndex="0"
+              />
+            <br />
+            <div className="capsWarning">
+              {capsLockWarning}
+            </div>
           </div>
           <br />
           <input 
@@ -67,10 +67,15 @@ class SignInPage extends React.Component {j
             type="submit" 
             value="Sign In" 
           />
-          <Link className="forgotPassword" to="/forgotPassword">
-            <p>Forgot Password?</p>
-          </Link>
         </form>
+
+        <Link className="signUpLink" to="/SignUp">
+          <p>Sign Up</p>
+        </Link>
+
+        <Link className="forgotPasswordLink" to="/forgotPassword">
+          <p>Forgot Password?</p>
+        </Link>
       </div>
     );
   }
@@ -80,13 +85,31 @@ class SignInPage extends React.Component {j
   }
 
   // detect caps lock
-  onKeyDown = (event) => {
-    if (event.keyCode == 9) {
-      capsLockWarning = "Caps Lock is On!";
-      console.log("caps lock");
-    } else {
-      capsLockWarning = "";
+  onCapsDown = (event) => {
+    if (event.code == "CapsLock") {
+      if (capsLockWarning == "")
+        capsLockWarning = "Caps Lock is On!";
+      else
+        capsLockWarning = "";
+      
+      this.forceUpdate();
     }
+  }
+
+  isCapsDown = (event) => {
+    var capsOn = event.getModifierState("CapsLock");
+
+    if (capsOn == true)
+      capsLockWarning = "Caps Lock is On!";
+    else
+        capsLockWarning = "";
+
+    this.forceUpdate();
+  }
+
+  offCapsWarning = () => {
+    capsLockWarning = "";
+    this.forceUpdate();
   }
 };
 
