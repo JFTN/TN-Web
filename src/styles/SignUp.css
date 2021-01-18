@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap");
 /* Variables */
 body {
   font-family: "Didact Gothic", sans-serif;
@@ -20,27 +19,49 @@ div .container {
   border-radius: 20px;
   padding: 30px;
 }
-div .container input:not([type=button]):not([type=reset]):not([type=submit]) {
-  display: flex;
-  height: 35px;
-  width: 300px;
-  margin: 15px;
-  padding: 5px;
+div .container .inputBox {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  margin-bottom: 35px;
+}
+div .container .inputBox input {
+  position: absolute;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
   font-size: 15px;
+}
+div .container .inputBox label {
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  padding: 10px;
+  font-size: 16px;
+  transition: 0.5s;
+  pointer-events: none;
+}
+div .container .inputBox input:focus ~ label,
+div .container .inputBox input:valid ~ label {
+  transform: translateY(-37px) translateX(-10px);
+  font-size: 14px;
 }
 div .container input[type=button], div .container input[type=reset], div .container input[type=submit] {
   background-color: #ffd1dc;
   color: black;
   height: 40px;
   width: 150px;
-  margin: 10px;
   font-size: 20px;
   border-radius: 10px;
   border-color: #ffd1dc;
 }
 div h1 {
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 div .tos {
   margin-top: 20px;

@@ -8,26 +8,26 @@ const SignUpPage = () => {
         <h1>Sign Up</h1>
 
         <form>
-          <div>
+          <div class="inputBox">
             <input type="email" required/>
-            <span>Email</span>
+            <label>Email</label>
           </div>
-          <div>
+          <div class="inputBox">
             <input type="text" required/>
-            <span>Username</span>
+            <label>Username</label>
           </div>
-          <div>
+          <div class="inputBox">
             <input type="password" required/>
-            <span>Password</span>
+            <label>Password</label>
           </div>
-          <div>
+          <div class="inputBox">
             <input type="password" required/>
-            <span>Confirm Password</span>
+            <label>Confirm Password</label>
           </div>
           <input type="submit" value="Sign Up"/>
         </form>
 
-        {/* <p class="tos">By signing up, you confirm that you've read and accepted our Terms of Service and Privacy Policy.</p> */}
+        <p class="tos">By signing up, you confirm that you've read and accepted our Terms of Service and Privacy Policy.</p>
       </div>
     </div>
   );
